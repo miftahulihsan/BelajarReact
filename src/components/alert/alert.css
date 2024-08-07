@@ -1,0 +1,60 @@
+/* dark type */
+
+.alert p{
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    margin-block: 0px;
+}
+
+
+.alert-dark-green{
+    color: #FFFFFF;
+    background-color: #00AB4E ;
+}
+.alert-dark-orange{
+    color: #FFFFFF;
+    background-color: #E07E26;
+}
+
+.alert-dark-blue{
+    color: #FFFFFF;
+    background-color: #1868AB;
+}
+
+.alert-dark-red{
+    color: #FFFFFF;
+    background-color: #AE1E22;
+}
+
+/* light type */
+
+
+.alert-light-green{
+    color: #252528;
+    background-color: #E6F6EA !important;
+    background: transparent url("/src/assets/Icons/aksen_green.svg") right top/auto auto no-repeat;
+}
+
+.alert-light-orange{
+    color: #252528;
+    background-color: #FBF2E9 !important;
+    background: transparent url("/src/assets/Icons/aksen_orange.svg") right top/auto auto no-repeat;
+}
+
+.alert-light-blue{
+    color: #252528;
+    background-color: #E8F1F9 !important;
+    background: transparent url("/src/assets/Icons/aksen_blue.svg") right top/auto auto no-repeat;
+}
+
+.alert-light-red{
+    color: #252528;
+    background-color: #F9E7E8 !important;
+    background: transparent url("/src/assets/Icons/aksen_red.svg") right top/auto auto no-repeat;
+}
+
+.mobile{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}

@@ -1,0 +1,92 @@
+/* size of button */
+
+.btn_{
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.primary:disabled{
+    opacity: 1;
+    background-color: #939597;
+}
+
+.sm{
+    line-height: 18px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    gap: 4px;
+}
+
+.mdm{
+    line-height: 20px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    gap: 4px;
+}
+
+.lg{
+    line-height: 24px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    gap: 4px;
+}
+
+/* type of button */
+
+/* primary*/
+.primary{
+    background-color: #00AB4E;
+    color: #FFFFFF;
+    border: none;
+}
+
+.primary:hover:enabled{
+    background-color: #00883E;
+}
+
+.primary:active:enabled{
+    background-color: #00662E;
+}
+
+/* .primary.disabled:active{
+    background-color: white;
+} */
+
+/* secondary */
+
+.secondary{
+    background-color: #FFFFFF;
+    color: #00AB4E;
+    border-color: #00AB4E;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.secondary:hover:enabled{
+    color: #00883E;
+    border-color: #00883E;
+}
+
+.secondary:active:enabled{
+    color: #00883E;
+    border-color: #00883E;
+}
+
+/* tertiary */
+
+.tertiary{
+    background-color: #FFFFFF;
+    color: #00AB4E;
+    border: none;
+}
+
+.tertiary:hover:enabled{
+    color: #00883E;
+}
+
+.tertiary:active:enabled{
+    color: #00662E;
+}
+

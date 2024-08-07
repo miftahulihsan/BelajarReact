@@ -1,0 +1,22 @@
+.labelForm{
+    display:flex;
+    gap: 4px;
+    align-items:center;
+}
+
+.error-massage{
+    color: #AE1E22;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.disabled{
+    opacity: 0.5;
+}
+
+/* .form-control:disabled {
+    .form-control-icon{
+        padding-left: 16px;
+    }   
+} */
