@@ -1,0 +1,15 @@
+.payment .payment-img{
+    width: 60px;
+    display: flex;
+}
+
+.payment-img{
+    width: 50px;
+    margin-right: 8px;
+    align-items: center;
+    gap: 24px;
+}
+
+.payment-img-horizontal{
+
+}

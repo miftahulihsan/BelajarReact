@@ -34,6 +34,33 @@ function App() {
     }
   ]
 
+  const arrayPayment = [
+    {
+      img:"https://bucket.pegadaian.co.id/design-system-salt-bucket/assets/images/logo-bank-bni.png",
+      title:"BNI Virtual Account"
+    },
+    {
+      img:"https://bucket.pegadaian.co.id/design-system-salt-bucket/assets/images/logo-bank-bri.png",
+      title:"BRI Virtual Account"
+    },
+    {
+      img:"https://bucket.pegadaian.co.id/design-system-salt-bucket/assets/images/logo-bank-mandiri.png",
+      title:"Mandiri Virtual Account"
+    },
+    {
+      img:"https://bucket.pegadaian.co.id/design-system-salt-bucket/assets/images/logo-bank-btn.png",
+      title:"BTN Virtual Account"
+    },
+    {
+      img:"https://bucket.pegadaian.co.id/design-system-salt-bucket/assets/images/logo-bank-permata.png",
+      title: "Permata Virtual Account"
+    },
+    {
+      img:"https://bucket.pegadaian.co.id/design-system-salt-bucket/assets/images/logo-bank-maybank.png",
+      title:"Maybank Virtual Account"
+    }
+  ]
+
   return(
     <div className='row gap-2 m-3'>
       <Button
@@ -174,7 +201,7 @@ function App() {
         </div>
       </div>
         
-      <Accordion item={accordionArray}/>
+      <Accordion type="payment" itemPayment={arrayPayment}/>
      
 
     </div>
