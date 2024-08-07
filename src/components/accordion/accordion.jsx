@@ -17,12 +17,12 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
                 {item.length > 0 &&
                     item.map((item,id)=> (
                         <div className="accordion-item" key={id}>
-                            <h2 className="accordion-header">
+                            <h2 className="accordion-header" id={`heading-${id}`}>
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse-${id}`} aria-expanded="false" aria-controls={`flush-collapse-${id}`}>
                                 {item.title}
                                 </button>
                             </h2>
-                            <div id={`flush-collapse-${id}`} className="accordion-collapse collapse" data-bs-parent="#accordion-default" >
+                            <div id={`flush-collapse-${id}`} className="accordion-collapse collapse" data-bs-parent="#accordion-default" aria-labelledby={`heading-${id}`} >
                                 <div className="accordion-body">{item.content}</div>
                             </div>
                         </div>
@@ -34,10 +34,16 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
     }
 
     function PaymentAccordion(){
+        const [isPaymentChoosen, setPaymentChoosen] = useState(false)
+        function handleClickPaymentChoosen(id){
+            setPaymentChoosen(id)
+            if (isPaymentChoosen===id) setPaymentChoosen(false)
+            console.log(isPaymentChoosen)
+        }
+
         const [isImgVisible, setImgVisible] = useState(true)
         function handleClick(){
             isImgVisible? setImgVisible(false): setImgVisible(true)
-            return isImgVisible
         }
         return(
         <>
@@ -59,12 +65,12 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
                                     </div>
                     
                             </div>
-                            <div id={`flush-collapse`} className="accordion-collapse collapse" data-bs-parent="#accordion-payment" >
+                            <div id={`flush-collapse`} className="accordion-co  llapse collapse" data-bs-parent="#accordion-payment" >
                                 <div className="accordion-body px-0 py-0">
                                     {
                                         itemPayment &&
                                             itemPayment.map((item,id) => (
-                                                <div key={id} className="payment d-flex align-items-center gap-3 border-top px-3 py-3">
+                                                <div key={`${id}`} className={`payment d-flex align-items-center gap-3 border-top px-3 py-3 ${id === isPaymentChoosen? "active":null}`} onClick={() => handleClickPaymentChoosen(id)}>
                                                     <img className="payment-img" src={item.img} alt="" />
                                                     <span>{item.title}</span>
                                                 </div>

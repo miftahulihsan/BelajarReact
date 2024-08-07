@@ -10,6 +10,6 @@
     gap: 24px;
 }
 
-.payment-img-horizontal{
-
+.payment.active{
+    background-color: #e6f6ea ;
 }
