@@ -13,7 +13,7 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
     function DefaultAccordion(){
         return(
         <>
-            <div className="accordion " id="accordionFlushExample">
+            <div className="accordion " id="accordion-default">
                 {item.length > 0 &&
                     item.map((item,id)=> (
                         <div className="accordion-item" key={id}>
@@ -22,7 +22,7 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
                                 {item.title}
                                 </button>
                             </h2>
-                            <div id={`flush-collapse-${id}`} className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" >
+                            <div id={`flush-collapse-${id}`} className="accordion-collapse collapse" data-bs-parent="#accordion-default" >
                                 <div className="accordion-body">{item.content}</div>
                             </div>
                         </div>
@@ -41,14 +41,14 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
         }
         return(
         <>
-            <div className="accordion " id="accordionFlushExample">
+            <div className="accordion " id="accordion-payment">
                         <div className="accordion-item">
                             <h2 className="accordion-header">
                                 <button onClick={handleClick} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapse`} aria-expanded="false" aria-controls={`flush-collapse`}>
                                 Pilih Varian Pembayaran
                                 </button>
                             </h2>
-                            <div className={`accordion-collapse ${isImgVisible? "d-inline": "d-none"}`}>
+                            <div className={`accordion-collapse collapse ${isImgVisible? "d-inline": "d-none"}`}>
                                     <div className="py-3 px-3 border-top overflow-auto " style={{whiteSpace:"nowrap"}}>
                                         {
                                             itemPayment &&
@@ -57,11 +57,9 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
                                                 ))
                                         }
                                     </div>
-
-                
                     
                             </div>
-                            <div id={`flush-collapse`} className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample" >
+                            <div id={`flush-collapse`} className="accordion-collapse collapse" data-bs-parent="#accordion-payment" >
                                 <div className="accordion-body px-0 py-0">
                                     {
                                         itemPayment &&
@@ -79,8 +77,6 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
         </>
         )
     }
-
-    
 }
 
 Accordion.propTypes = {
