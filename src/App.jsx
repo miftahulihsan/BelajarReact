@@ -202,6 +202,7 @@ function App() {
       </div>
         
       <Accordion type="payment" itemPayment={arrayPayment}/>
+      <Accordion type="default" item={accordionArray}></Accordion>
      
 
     </div>

@@ -48,9 +48,7 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
                                 Pilih Varian Pembayaran
                                 </button>
                             </h2>
-                            <div className={`accordion-collapse collapsed collapse ${isImgVisible && "show"}`}>
-                            
-                    
+                            <div className={`accordion-collapse ${isImgVisible? "d-inline": "d-none"}`}>
                                     <div className="py-3 px-3 border-top overflow-auto " style={{whiteSpace:"nowrap"}}>
                                         {
                                             itemPayment &&
@@ -86,15 +84,13 @@ export default function Accordion({type="default", item=[], itemPayment=[]}){
 }
 
 Accordion.propTypes = {
+    type:PropTypes.oneOf(["payment","default"]),
     item:PropTypes.arrayOf(
         PropTypes.shape({
             title:PropTypes.string,
             content:PropTypes.string
-        })
-    )
-}
-
-Accordion.propTypes = {
+        })  
+    ),
     itemPayment:PropTypes.arrayOf(
         PropTypes.shape({
             title:PropTypes.string,
