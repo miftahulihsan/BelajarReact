@@ -42,16 +42,22 @@ export default function Alert({type="dark", color="green",device="desktop",text=
     }
 
     const [visible, setVisibile] = useState(true)
+    const [display,setDisplay] = useState("block");
+    const [opacity,setOpacity] = useState("opacity-100")
+
     function handleClose(){
+        setOpacity("opacity-0")
+        setTimeout(() =>
+            setDisplay("hidden"), 300)
         setVisibile(false)
     }
 
     return(
         <>
-            <div className={`group ${base} ${getVariant()} ${visible? "opacity-100":"transition-close"} transition-opacity duration-200 ease-in-out opacity-100 `} role="alert">
+            <div className={`group ${base} ${getVariant()} ${visible? "opacity-100":`${display} ${opacity}`} transition-opacity duration-200 ease-in-out allow-descreate`} role="alert">
                 <p className="group-[.dark]:text-white group-[.light]:text-neutral-80 text-xs text-neutral-80 flex-grow ">{text}</p> 
                 {dismissable &&
-                    <div onClick={handleClose} className={`close-btn group-[.dark]:bg-white group-[.light]:bg-neutral-80 w-4 h-4 opacity-50 hover:opacity-100 focus:bg-transparent`} style={{ maskImage: `url(/src/icons/close.svg)`, WebkitMaskImage: `url(/src/icons/close.svg)`, maskPosition: `center`, maskSize:`100%`}} />
+                    <div id="close-btn" onClick={handleClose} className={`close-btn group-[.dark]:bg-white group-[.light]:bg-neutral-80 w-4 h-4 opacity-50 hover:opacity-100 focus:bg-transparent`} style={{ maskImage: `url(/src/icons/close.svg)`, WebkitMaskImage: `url(/src/icons/close.svg)`, maskPosition: `center`, maskSize:`100%`}} />
                 }
             </div>      
         </>

@@ -2,16 +2,18 @@
 import PropTypes from "prop-types";
 
 
+
 function Button({
     title="Button" ,
-    size="mdm",
+    size="lg",
     type="primary",
     disabled=false,
     iconRight="",
     iconLeft="",
     dataToggle=null,
     dataTarget=null,
-    dataDismiss=null
+    dataDismiss=null,
+    ...props
 })
  {
 
@@ -56,7 +58,7 @@ function Button({
 
     return(
         <>
-        <button className={`group ${base} ${getType()} ${getSize()}`} disabled={disabled}>
+        <button className={`group ${base} ${getType()} ${getSize()}`} disabled={disabled} {...props}>
             {iconLeft && 
                 <div className={`
                     
