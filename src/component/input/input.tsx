@@ -4,10 +4,21 @@ import { useState } from "react";
 export default function Input({label="Label", placeholder="Masukkan label", icon="", errorMassage="", disable=false, required=false, info=false }){
 
     const [enteredText, setEnteredText] = useState(''); 
+    const [isError, setError] = useState(false);
 
     function clearInput(){
         setEnteredText('')
+        setError(true)
         enteredText===''? console.error("Jangan kosong"):console.log(enteredText);
+    }
+
+    function checkEmpty(e:string){
+        setEnteredText(e)
+        if(e.length === 0){
+            setError(true)
+            console.log("kosong")
+        }else setError(false)
+       
     }
 
     return(
@@ -27,13 +38,13 @@ export default function Input({label="Label", placeholder="Masukkan label", icon
                 placeholder={placeholder}
                 required={required}
                 value={enteredText}
-                onChange={(e) => setEnteredText(e.target.value)}
+                onChange={(e) => checkEmpty(e.target.value)}
             />
                 <img className="opacity-50 hover:opacity-100" src="/src/icons/close_fill.svg" alt="" onClick={clearInput}  />
           
             
         </div>
-        {errorMassage && 
+        {isError && 
         <div className="text-xs text-red-50">
             {errorMassage}
         </div>
