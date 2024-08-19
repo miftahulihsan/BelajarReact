@@ -4,9 +4,14 @@ import Button from "../button/button";
 interface ModalProps {
     onClose: () => void;
     content: React.ReactNode
+    type: "basic" | "form" | "open"
+    dismissButtonText: string
+    header: string
+    redirectButtonText? : string
+    redirectButtonLink? : () => void
 }
 
-export default function Modal({ onClose, content }: ModalProps) {
+export default function Modal({ onClose, content, type, header, dismissButtonText, redirectButtonText, redirectButtonLink}: ModalProps) {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [opacity, setOpacity] = useState("opacity-100")
 
@@ -37,18 +42,26 @@ export default function Modal({ onClose, content }: ModalProps) {
 
             {/* Modal content */}
             <div
-                className={`relative z-10 card rounded-md outline outline-neutral-20 bg-white w-60 transition-transform transform duration-500 ease-out ${isTransitioning ? 'translate-y-0 opacity-100' : `${opacity} translate-y-[-50px]`}`}
+                className={`relative z-10  sm:w-[300px] w-10/12 card rounded-md outline outline-neutral-20 bg-white w-60 transition-transform transform duration-500 ease-out ${isTransitioning ? 'translate-y-0 opacity-100' : `${opacity} translate-y-[-50px]`}`}
             >
                 <div className="card-header p-3 flex flex-col gap-2 font-extrabold">
-                    Modal Header
+                    {header}
                 </div>
                 <hr className="border-neutral-20" />
                 <div className="card-body p-4">
                     {content}
                 </div>
                 <div className="card-footer p-4 flex flex-col gap-2">
-                    <Button type="secondary" onClick={handleClose}>Close</Button>
-                    <Button>Another Action</Button>
+                    {
+                        type==="basic" && <Button type="primary" onClick={handleClose} title={dismissButtonText}></Button>     
+                    }
+                    {
+                         (type==="form" || type==="open") && 
+                         <>
+                             <Button type="secondary" onClick={handleClose} title={dismissButtonText}></Button>
+                             <Button title={redirectButtonText} onClick={redirectButtonLink}></Button>
+                         </>  
+                    }
                 </div>
             </div>
         </div>

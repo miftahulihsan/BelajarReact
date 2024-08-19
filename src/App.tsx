@@ -20,6 +20,9 @@ function App() {
       isModal_2Visible? setIsModal_2Visible(false): setIsModal_2Visible(true);
   };
 
+  function openLink(){
+    window.open("https://www.pegadaian.co.id/")
+};
    
 
   return (
@@ -31,8 +34,8 @@ function App() {
       <Button title="Open Modal_1" onClick={handleModal_1} ></Button>
       <Button title="Open Modal_2" onClick={handleModal_2} ></Button>
     </div>
-    {isModal_1Visible && <Modal onClose={handleModal_1} content={<img src="https://reactjs.org/logo-og.png" alt="React Logo" />}/>}
-    {isModal_2Visible && <Modal onClose={handleModal_2} content=
+    {isModal_1Visible && <Modal onClose={handleModal_1} content={<img src="https://reactjs.org/logo-og.png" alt="React Logo" />} dismissButtonText='Mengerti' header='Header Modal' type='basic'/>}
+    {isModal_2Visible && <Modal onClose={handleModal_2} dismissButtonText='Batalkan' redirectButtonText="Ubah" redirectButtonLink={openLink} header='Header Modal' type='open' content=
     {
       <> 
         <h2 className='font-extrabold'>Ini Modal</h2>
