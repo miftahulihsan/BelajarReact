@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import './alert.css'
 
-export default function Alert({type="dark", color="green",device="desktop",text="Alert",dismissable=true}){
+export default function Alert({type="dark", color="green",text="Alert",dismissable=true}){
 
     const base="flex flex-row rounded-md p-3 bg-no-repeat bg-right-top"
     // light alert
@@ -67,7 +67,6 @@ export default function Alert({type="dark", color="green",device="desktop",text=
 Alert.propTypes = {
     type: PropTypes.oneOf(["light","dark"]),
     color: PropTypes.oneOf(["red","blue","green","orange"]),
-    device: PropTypes.oneOf(["desktop","mobile"]),
     text: PropTypes.string,
     dismissable: PropTypes.bool
 }
