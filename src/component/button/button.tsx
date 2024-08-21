@@ -58,7 +58,7 @@ function Button({
 
     return(
         <>
-        <button className={`group ${base} ${getVarian()} ${getSize()}`} type="submit" disabled={disabled} {...props}>
+        <button className={`group ${base} ${getVarian()} ${getSize()}`} disabled={disabled} {...props}>
             {iconLeft && 
                 <div className={`
                     

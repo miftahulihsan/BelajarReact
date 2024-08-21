@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Button from './component/button/button.tsx'
 import Input from './component/input/input.tsx'
 import Alert from './component/alert/alert.tsx'
@@ -65,9 +65,42 @@ const departmenList = ["Costomer Experience Innovation", "Partnership Innovation
      let x = document.getElementById("text")
   }
 
-  function handleErrorApp(){
-      
-  }
+  const textRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const dropdownRef = useRef<HTMLSelectElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const unblockRef = useRef<(() => void) | null>(null);
+
+  const [isTextError, setTextError] = useState(false)
+  const [isPasswordError, setPasswordError] = useState(false)
+  const [isEmailError, setEmailError] = useState(false)
+  const [isDropdownError, setDropdownError] = useState(false)
+  const [isPhoneError, setPhoneError] = useState(false)
+
+  const handleSubmitt = () => {
+      (textRef.current?.value === "")? setTextError(true): setTextError(false);
+      (emailRef.current?.value === "")? setEmailError(true): setEmailError(false);
+      (passwordRef.current?.value === "")? setPasswordError(true): setPasswordError(false);
+      (dropdownRef.current?.value === "0")? setDropdownError(true): setDropdownError(false);
+      (phoneRef.current?.value === "")? setPhoneError(true): setPhoneError(false);
+        console.log(dropdownRef.current?.value)
+  };
+
+  const handleReset = () => {
+    if (textRef.current) textRef.current.value = "";
+    if (passwordRef.current) passwordRef.current.value = "";
+    if (emailRef.current) emailRef.current.value = "";
+    if (dropdownRef.current) dropdownRef.current.value = "0";
+    if (phoneRef.current) phoneRef.current.value = "";
+  
+    setTextError(false);
+    setPasswordError(false);
+    setEmailError(false);
+    setDropdownError(false);
+    setPhoneError(false);
+  };
+
   return (
     <> 
     <div className="containers grid grid-cols-2 auto-rows-auto gap-5 p-5">
@@ -78,26 +111,26 @@ const departmenList = ["Costomer Experience Innovation", "Partnership Innovation
 
       <div className=" px-6 py-6 flex flex-col gap-4 text-24-zeta font-extrabold shadow-md rounded-lg border border-neutral-20">
         Alert
-        <Alert type='dark' color='red' text='Ini adalah alert' dismissable={true}></Alert>
+        <Alert type='light' color='red' text='Ini adalah alert' dismissable={true}></Alert>
       </div>
 
       <div className=" px-6 py-6 flex flex-col col-span-2 gap-4 text-24-zeta  font-extrabold shadow-md rounded-lg border border-neutral-20">
         Form Input
         <form action="" >
-
-        </form>
-        <div id="formm"className="grid grid-cols-2 gap-5">
-          <Input id="text" type="text" label='Nama' placeholder='Masukkan nama' icon='/src/icons/user.svg' info={true} ></Input>
-          <Input id="password" type="password" label='Password' placeholder='Masukkan password' info={true} ></Input>
-          <Input id="email" type="email" label='Email' placeholder='Masukkan email' info={true} ></Input>
-          <Input id="phone" type="phone" label='Telepon' placeholder='Masukkan nomor telepon' info={true} ></Input>
-          <Dropdown id="dropdwon" label="Departemen" items={departmenList}></Dropdown>
-          <div className="button-section col-span-2 flex flex-row gap-4">
-            <Button type="submit" varian='secondary' title='Reset' onClick={handleSubmit}></Button>
-            <Button type="submit" varian='primary' title='Submit' onClick={handleSubmit}></Button>
-          </div>
           
-        </div>
+        </form>
+        <div id="form"className="grid grid-cols-2 gap-5" >
+      
+            <Input state={isTextError? false:true} ref={textRef} type="text" label='Nama' placeholder='Masukkan nama' icon='/src/icons/user.svg' info={true} ></Input>
+            <Input  state={isPasswordError? false:true} ref={passwordRef} type="password" label='Password' placeholder='Masukkan password' info={true} ></Input>
+            <Input   state={isEmailError ? false:true} ref={emailRef} type="email" label='Email' placeholder='Masukkan email' info={true} ></Input>
+            <Input   state={isPhoneError ? false:true} ref={phoneRef} type="phone" label='Telepon' placeholder='Masukkan nomor telepon' info={true} ></Input>
+            <Dropdown   state={isDropdownError ? false:true} ref={dropdownRef} label="Departemen" items={departmenList}></Dropdown>
+            <div className="button-section col-span-2 flex flex-row gap-4">
+              <Button type="submit" varian='secondary' title='Reset' onClick={handleReset} ></Button>
+              <Button varian='primary' title='Submit' onClick={handleSubmitt}></Button>
+            </div>
+          </div>
         
       </div>
 
