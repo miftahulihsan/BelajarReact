@@ -64,6 +64,10 @@ const departmenList = ["Costomer Experience Innovation", "Partnership Innovation
       console.log("submitt")
      let x = document.getElementById("text")
   }
+
+  function handleErrorApp(){
+      
+  }
   return (
     <> 
     <div className="containers grid grid-cols-2 auto-rows-auto gap-5 p-5">

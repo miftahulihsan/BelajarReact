@@ -51,10 +51,11 @@ export default function Input({type="text",label="Label", placeholder="Masukkan 
     }
 
     function checkNumber(value: string) {
+        value = value.replace(/[^0-9]/g, ''); //no alphabet or symbol
         
-        value = value.replace(/\s+/g, '');
+        value = value.replace(/\s+/g, ''); //erase space
 
-        let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+        let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value; //dividing string
 
         console.log(formattedValue)
 
