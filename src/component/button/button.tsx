@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function Button({
     title="Button" ,
     size="lg",
-    type="primary",
+    varian="primary",
     disabled=false,
     iconRight="",
     iconLeft="",
@@ -21,25 +21,25 @@ function Button({
     const base = "flex flex-row w-full justify-center gap-1 items-center justify-items-center"
 
     // size
-    const sm="sm py-1 px-2.5 rounded text-xs"
-    const md="md py-1.5 px-3 rounded-md text-sm"
-    const lg="lg py-2 px-4 rounded-md text-base"
-    const xl="xl py-3 px-4 rounded-md text-base"
+    const sm="sm py-1 px-2.5 rounded text-12-omega"
+    const md="md py-1.5 px-3 rounded-md text-14-sigma"
+    const lg="lg py-2 px-4 rounded-md text-16-omicron"
+    const xl="xl py-3 px-4 rounded-md text-16-omicron"
 
     //variant  
     const primary= "primary bg-lime-50 text-white hover:bg-lime-60 active:bg-lime-80 disabled:bg-neutral-40"
-    const secondary="secondary bg-white text-lime-50 outline outline-lime-50 hover:outline-lime-60 hover:text-lime-60 active:outline-lime-80 active:text-lime-80 active:bg-lime-10 disabled:bg-neutral-10 disabled:text-neutral-50 disabled:outline-neutral-40 "
+    const secondary="secondary bg-white text-lime-50 border border-lime-50 hover:border-lime-60 hover:text-lime-60 active:border-lime-80 active:text-lime-80 active:bg-lime-10 disabled:bg-neutral-10 disabled:text-neutral-50 disabled:border-neutral-40 "
     const tertiary="tertiary bg-white text-lime-50 hover:text-lime-60 active:text-lime-80 active:bg-lime-10 disabled:text-neutral-50"
-    const neutral= "neutral bg-white text-neutral-60 outline outline-neutral-40 hover:text-lime-60 active:bg-lime-10 active:text-lime-80 disabled:bg-neutral-10 disabled:text-neutral-50 disabled:outline-neutral-40"
+    const neutral= "neutral bg-white text-neutral-60 border border-neutral-40 hover:text-lime-60 active:bg-lime-10 active:text-lime-80 disabled:bg-neutral-10 disabled:text-neutral-50 disabled:border-neutral-40"
 
-    function getType(){
-        if(type==="primary"){
+    function getVarian(){
+        if(varian==="primary"){
             return primary
-        }else if(type === "secondary"){
+        }else if(varian === "secondary"){
             return secondary
-        }else if(type === "tertiary"){
+        }else if(varian === "tertiary"){
             return tertiary
-        }else if(type === "neutral"){
+        }else if(varian === "neutral"){
             return neutral
         }
     }
@@ -58,7 +58,7 @@ function Button({
 
     return(
         <>
-        <button className={`group ${base} ${getType()} ${getSize()}`} disabled={disabled} {...props}>
+        <button className={`group ${base} ${getVarian()} ${getSize()}`} type="submit" disabled={disabled} {...props}>
             {iconLeft && 
                 <div className={`
                     
@@ -102,7 +102,7 @@ Button.propTypes={
         "xl"
     ]),
 
-    type: PropTypes.oneOf([
+    varian: PropTypes.oneOf([
         "primary",
         "secondary",
         "tertiary",

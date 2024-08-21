@@ -19,7 +19,7 @@ export default function Accordion({ items }: AccordionProps) {
                         onClick={() => handleOpen(index)} 
                         className={`accordion-header flex flex-row items-center h-auto pb-4 cursor-pointer`}
                     >
-                        <div className={`flex flex-grow font-extrabold ${activeIndex === index ? "text-lime-50" : "text-neutral-60"}`}>
+                        <div className={`flex flex-grow font-extrabold text-16-omicron ${activeIndex === index ? "text-lime-50" : "text-neutral-60"}`}>
                             {item.title}
                         </div>
                         <img 
@@ -29,7 +29,7 @@ export default function Accordion({ items }: AccordionProps) {
                         />
                     </div>
                     <div className={`accordion-body overflow-hidden transition-all duration-300 ease-in-out ${activeIndex === index ? "max-h-96 pb-4" : "max-h-0"}`}>
-                        <p className="text-neutral-60">
+                        <p className="text-neutral-60 text-16-omicron">
                             {item.text}
                         </p>
                     </div>
@@ -59,7 +59,7 @@ export function AccordionPayment({ paymentMethodList }: { paymentMethodList: { t
                         onClick={handleOpenPaymentAccordion} 
                         className={`accordion-header flex flex-row items-center h-auto pb-4 px-5 cursor-pointer`}
                     >
-                        <div className={`flex flex-grow font-extrabold ${isPaymentOpen ? "text-lime-50" : "text-neutral-60"}`}>
+                        <div className={`flex flex-grow font-extrabold text-16-omicron ${isPaymentOpen ? "text-lime-50" : "text-neutral-60"}`}>
                             Pilih Varian Pembayaran
                         </div>
                         <img 
@@ -85,7 +85,7 @@ export function AccordionPayment({ paymentMethodList }: { paymentMethodList: { t
                         <div className="payment-list">
                             {
                                 paymentMethodList.map((item,key) => (
-                                    <div onClick={() => handlePaymentClick(key)} key={`payment-${key}`} className={`payment-method py-4 border-t border-neutral-20 flex flex row items-center gap-4 text-neutral-80 px-5 ${isPaymentClick === key && "bg-lime-10"}`}>
+                                    <div onClick={() => handlePaymentClick(key)} key={`payment-${key}`} className={`payment-method py-4 border-t border-neutral-20 flex flex row items-center gap-4 text-neutral-80 text-16-omicron px-5 ${isPaymentClick === key && "bg-lime-10"}`}>
                                         <img className="w-[50px]" src={item.image} alt="" />
                                         {item.title}
                                     </div>
